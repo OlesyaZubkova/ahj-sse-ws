@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventSource, Websockets</title>
+</head>
+<body>
+
+    <form class="main-page">
+        <label class="head" for="name">Выберите псевдоним</label>
+        <input id="name" class="name" type="text" required>
+        <button class="main-btn">Продолжить</button>
+    </form>
+
+    <section class="chat hidden">
+
+        <div class="chat-list">
+            <ul class="user-list">
+                <li class="user">
+                    Sasha
+                </li>
+                <li class="user">
+                    Misha
+                </li>
+                <li class="user">
+                    Andrew
+                </li>
+                <li class="user">
+                    Patrick
+                </li>
+                <li class="user">
+                    Helen
+                </li>
+            </ul>
+        </div>
+
+        <div class="chat-window">
+            <div class="window my-window">
+                <img class="img my-icon" src="./img/user-1.png">
+                <span class="msg" style="font-style: italic;">
+                    You are online. Say hello to friends
+                </span>
+            </div>
+
+            <div class="window user-window">
+                <img class="img user-icon" src="./img/user-2.png">
+                <span class="msg">
+                    Hey!
+                </span>
+            </div>
+
+            <form class="write-window">
+                <label for="text" class="message-form">Type your message here...</label>
+                <input id="text" class="text" type="text" required>
+                <button class="confirm">
+                    Send a message
+                </button>
+            </form>
+        </div>
+    </section>
+    
+</body>
+</html>

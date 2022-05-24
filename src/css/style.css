@@ -1,0 +1,163 @@
+.main-page {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    box-sizing: border-box;
+    margin: 50px auto;
+    border: gray 1px solid;
+    border-radius: 20px;
+    padding: 50px;
+}
+
+.head {
+    margin: auto;
+}
+
+.name {
+    margin: 20px auto;
+    padding: 0 20px;
+    background: #E9EFF6;
+    resize: none;
+    width: 200px;
+    height: 30px;
+    border-radius: 20px;
+    border: gray 1px solid;
+}
+
+.main-btn {
+    border-radius: 20px;
+    line-height: 40px;
+    background: #f69a73;
+    border-bottom: 4px solid #d87d56;
+    color: white;
+    font-size: 14px;
+    width: 250px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.chat {
+    display: flex;
+    padding: 30px;
+    border-radius: 20px;
+    border: #000 1px solid;
+    margin: auto;
+    width: 80%;
+}
+
+.hidden {
+    display: none;
+}
+
+.user {
+    list-style-type: none;
+    margin: 30px;
+    border-radius: 20px;
+    border: gray 1px solid;
+    height: 30px;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+}
+
+.chat-window {
+    border-radius: 20px;
+    border: gray 1px solid;
+    margin: 20px;
+    padding: 20px;  
+    width: 50%;
+}
+
+.window {
+    margin: 30px;
+    border-radius: 20px;
+    border: gray 1px solid;
+    height: 20px;
+    padding: 20px;
+    background: #f1f1f1;
+}
+
+.window:nth-child(2n+1) {
+    background: #dddddd;
+}
+
+.my-window {
+    position: relative;
+    text-align: left;
+
+    display: flex;
+    align-items: center;
+}
+
+.my-window::before {
+    content: 'you';
+    position: absolute;
+    right: 3%;
+    top: 5%;
+}
+
+.user-window {
+    position: relative;
+    text-align: right;
+
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+.user-window::before {
+    content: 'companion';
+    position: absolute;
+    left: 3%;
+    top: 5%;
+}
+
+.write-window {
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+    padding: 20px;
+}
+
+.message-form {
+    text-align: center;
+    margin: 10px auto;
+}
+
+.text {
+    border-radius: 20px;
+    background: #E9EFF6;
+    border: none;
+    padding: 20px;
+    margin-bottom: 25px;
+    width: 96%;
+}
+
+.confirm {
+    border-radius: 20px;
+    line-height: 40px;
+    margin: auto;
+    background: #f69a73;
+    border-bottom: 4px solid #d87d56;
+    color: white;
+    font-size: 16px;
+    width: 40%;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.my-icon {
+    margin-right: 20px;
+    height: 35px;
+}
+
+.user-icon {
+    margin-left: 20px;
+    height: 35px;
+    order: 1;
+}
+
+.iam-user {
+    background-color: antiquewhite;
+}
