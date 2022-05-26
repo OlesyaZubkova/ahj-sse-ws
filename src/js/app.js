@@ -1,4 +1,4 @@
-const ws = new WebSocket('wss://hidden-ocean-52797.herokuapp.com');
+const ws = new WebSocket('wss://whispering-caverns-90296.herokuapp.com');
 
 ws.addEventListener('open', () => {
   // eslint-disable-next-line
