@@ -2,7 +2,7 @@
   "name": "ahj-sse-ws",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "js/app.js",
   "scripts": {
     "startwebpack": "webpack-dev-server --mode development",
     "start": "node src/js/server.js",
