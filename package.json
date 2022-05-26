@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "startwebpack": "webpack-dev-server --mode development",
+    "start": "node src/js/server.js",
     "build": "webpack --mode production",
     "lint": "eslint .",
     "test": "jest --passWithNoTests",
@@ -43,6 +44,9 @@
     "webpack-dev-server": "^4.9.0"
   },
   "dependencies": {
-    "core-js": "^3.22.5"
+    "core-js": "^3.22.5",
+    "koa": "^2.13.4",
+    "koa-body": "^5.0.0",
+    "ws": "^8.6.0"
   }
 }

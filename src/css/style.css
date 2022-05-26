@@ -87,12 +87,13 @@
 
     display: flex;
     align-items: center;
+    justify-content: right;
 }
 
 .my-window::before {
     content: 'you';
     position: absolute;
-    right: 3%;
+    left: 3%;
     top: 5%;
 }
 
@@ -102,13 +103,12 @@
 
     display: flex;
     align-items: center;
-    justify-content: right;
 }
 
 .user-window::before {
     content: 'companion';
     position: absolute;
-    left: 3%;
+    right: 3%;
     top: 5%;
 }
 
@@ -148,14 +148,16 @@
 }
 
 .my-icon {
-    margin-right: 20px;
-    height: 35px;
-}
 
-.user-icon {
     margin-left: 20px;
     height: 35px;
     order: 1;
+}
+
+.user-icon {
+    margin-right: 20px;
+    height: 35px;
+
 }
 
 .iam-user {

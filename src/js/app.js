@@ -1,4 +1,4 @@
-const ws = new WebSocket('ws://dry-chamber-21015.herokuapp.com');
+const ws = new WebSocket('ws://localhost:8080/ws');
 
 ws.addEventListener('open', () => {
     console.log('connected');
@@ -20,14 +20,55 @@ const text = document.getElementById('text');
 const confirmBtn = document.querySelector('.confirm');
 const userInput = document.getElementById('name');
 
+ws.addEventListener('message', (evt) => {
+    console.log(evt.data)
+})
+
 btn.addEventListener('click', (e) => {
     e.preventDefault();
-    const userName = userInput.value;
-    console.log(userName)
-    main.classList.add('hidden');
-    chat.classList.remove('hidden')
+    const nickname = userInput.value;
+    console.log(nickname);
 
-    userList.insertAdjacentHTML('afterbegin', `<li class="user iam-user">${userInput.value}</li>`);
+    const users = [
+        {
+            username: 'Sasha'
+        },
+        {
+            username: "Misha"
+        },
+        {
+            username: 'Andrew'
+        },
+        {
+            username: 'Patrick'
+        },
+        {
+            username: 'Helen'
+        }
+    ]
+    console.log(users);
+
+    function check(name) {
+        let found = users.some(function (el) {
+            return el.username === name;
+        });
+        if (!found) {
+            users.push({ username: name });
+            alert('Запускается чат...');
+            main.classList.add('hidden');
+            chat.classList.remove('hidden');
+            
+            userList.insertAdjacentHTML('afterbegin', `<li class="user iam-user">${userInput.value}</li>`);
+
+        } else {
+            console.log('error');
+            alert('Данное имя занято! Введите другое.')
+        }
+    }
+
+    check(nickname);
+    console.log(users);
+
 });
 
 const dialog = [

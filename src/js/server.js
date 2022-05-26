@@ -1,11 +1,10 @@
 const http = require('http');
 const Koa = require('koa');
-// const { wasm } = require('webpack');
 const app = new Koa();
 const WS = require('ws');
 
 const port = process.env.PORT || 8080;
-const server = http.createServer(app.callback());
+const server = http.createServer(app.callback(port));
 const wsServer = new WS.Server({ server });
 
 wsServer.on('connection', (ws) => {
@@ -14,7 +13,8 @@ wsServer.on('connection', (ws) => {
             console.log(err);
         }
     }
-
-
-})
+    ws.on('message', (msg) => {
+        console.log(msg)
+    });
+});
 
