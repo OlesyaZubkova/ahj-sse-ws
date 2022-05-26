@@ -1,14 +1,15 @@
 const ws = new WebSocket('wss://hidden-ocean-52797.herokuapp.com');
 
 ws.addEventListener('open', () => {
-    console.log('connected');
-    ws.send('hello')
+  // eslint-disable-next-line
+  console.log('connected');
+  ws.send('hello');
 });
 
 ws.addEventListener('error', () => {
-    console.log('error')
+  // eslint-disable-next-line
+  console.log('error');
 });
-
 
 const main = document.querySelector('.main-page');
 const btn = document.querySelector('.main-btn');
@@ -21,68 +22,71 @@ const confirmBtn = document.querySelector('.confirm');
 const userInput = document.getElementById('name');
 
 ws.addEventListener('message', (evt) => {
-    console.log(evt.data)
-})
+  // eslint-disable-next-line
+  console.log(evt.data);
+});
 
 btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const nickname = userInput.value;
-    console.log(nickname);
+  e.preventDefault();
+  const nickname = userInput.value;
+  // eslint-disable-next-line
+  console.log(nickname);
 
-    const users = [
-        {
-            username: 'Sasha'
-        },
-        {
-            username: "Misha"
-        },
-        {
-            username: 'Andrew'
-        },
-        {
-            username: 'Patrick'
-        },
-        {
-            username: 'Helen'
-        }
-    ]
-    console.log(users);
+  const users = [
+    {
+      username: 'Sasha',
+    },
+    {
+      username: 'Misha',
+    },
+    {
+      username: 'Andrew',
+    },
+    {
+      username: 'Patrick',
+    },
+    {
+      username: 'Helen',
+    },
+  ];
+    // eslint-disable-next-line
+  console.log(users);
 
-    function check(name) {
-        let found = users.some(function (el) {
-            return el.username === name;
-        });
-        if (!found) {
-            users.push({ username: name });
-            alert('Запускается чат...');
-            main.classList.add('hidden');
-            chat.classList.remove('hidden');
-            
-            userList.insertAdjacentHTML('afterbegin', `<li class="user iam-user">${userInput.value}</li>`);
+  function check(name) {
+    const found = users.some((el) => el.username === name);
+    if (!found) {
+      users.push({ username: name });
+      // eslint-disable-next-line
+      alert('Запускается чат...');
+      main.classList.add('hidden');
+      chat.classList.remove('hidden');
 
-        } else {
-            console.log('error');
-            alert('Данное имя занято! Введите другое.')
-        }
+      userList.insertAdjacentHTML('afterbegin', `<li class="user iam-user">${userInput.value}</li>`);
+    } else {
+      // eslint-disable-next-line
+      console.log('error');
+      // eslint-disable-next-line
+      alert('Данное имя занято! Введите другое.');
     }
+  }
 
-    check(nickname);
-    console.log(users);
-
+  check(nickname);
+  // eslint-disable-next-line
+  console.log(users);
 });
 
 const dialog = [
-    "How is it going?",
-    "What are you up to?",
-    "Take care!",
-    "Have a good weekend",
-    "Till next time!"
-]
+  'How is it going?',
+  'What are you up to?',
+  'Take care!',
+  'Have a good weekend',
+  'Till next time!',
+];
 
 confirmBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    const chatText = chatWindow.previousElementSibling;
-    chatText.insertAdjacentHTML('afterend', `<div class="window user-window"><img class="user-icon img" src="https://i.hizliresim.com/OvmnqP.png">${dialog[Math.floor(Math.random() * 5)]}</div>`)
-    chatText.insertAdjacentHTML('afterend', `<div class="window my-window"> <img class="my-icon img" src="https://i.pinimg.com/originals/74/da/07/74da07214279d76f9809b9c3943f23e6.png">${text.value}</div>`);
-    document.getElementById('text').value='';
+  e.preventDefault();
+  const chatText = chatWindow.previousElementSibling;
+  chatText.insertAdjacentHTML('afterend', `<div class="window user-window"><img class="user-icon img" src="https://i.hizliresim.com/OvmnqP.png">${dialog[Math.floor(Math.random() * 5)]}</div>`);
+  chatText.insertAdjacentHTML('afterend', `<div class="window my-window"> <img class="my-icon img" src="https://i.pinimg.com/originals/74/da/07/74da07214279d76f9809b9c3943f23e6.png">${text.value}</div>`);
+  document.getElementById('text').value = '';
 });
