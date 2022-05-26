@@ -1,4 +1,4 @@
-const ws = new WebSocket('wss://dry-chamber-21015.herokuapp.com');
+const ws = new WebSocket('wss://hidden-ocean-52797.herokuapp.com');
 
 ws.addEventListener('open', () => {
     console.log('connected');
