@@ -3,7 +3,6 @@ const ws = new WebSocket('wss://whispering-caverns-90296.herokuapp.com');
 ws.addEventListener('open', () => {
   // eslint-disable-next-line
   console.log('connected');
-  ws.send('hello');
 });
 
 ws.addEventListener('error', () => {
@@ -24,6 +23,22 @@ const userInput = document.getElementById('name');
 ws.addEventListener('message', (evt) => {
   // eslint-disable-next-line
   console.log(evt.data);
+
+  if (evt.data === 'Доступ запрещен') {
+    // eslint-disable-next-line
+    alert('Данное имя занято! Введите другое.');
+    ws.addEventListener('close', (e) => {
+      // eslint-disable-next-line
+      console.log('Доступ к чату закрыт', e);
+    });
+  } else {
+    // eslint-disable-next-line
+    alert('Запускается чат...');
+    main.classList.add('hidden');
+    chat.classList.remove('hidden');
+
+    userList.insertAdjacentHTML('afterbegin', `<li class="user iam-user">${userInput.value}</li>`);
+  }
 });
 
 btn.addEventListener('click', (e) => {
@@ -31,48 +46,7 @@ btn.addEventListener('click', (e) => {
   const nickname = userInput.value;
   // eslint-disable-next-line
   console.log(nickname);
-
-  const users = [
-    {
-      username: 'Sasha',
-    },
-    {
-      username: 'Misha',
-    },
-    {
-      username: 'Andrew',
-    },
-    {
-      username: 'Patrick',
-    },
-    {
-      username: 'Helen',
-    },
-  ];
-    // eslint-disable-next-line
-  console.log(users);
-
-  function check(name) {
-    const found = users.some((el) => el.username === name);
-    if (!found) {
-      users.push({ username: name });
-      // eslint-disable-next-line
-      alert('Запускается чат...');
-      main.classList.add('hidden');
-      chat.classList.remove('hidden');
-
-      userList.insertAdjacentHTML('afterbegin', `<li class="user iam-user">${userInput.value}</li>`);
-    } else {
-      // eslint-disable-next-line
-      console.log('error');
-      // eslint-disable-next-line
-      alert('Данное имя занято! Введите другое.');
-    }
-  }
-
-  check(nickname);
-  // eslint-disable-next-line
-  console.log(users);
+  ws.send(nickname);
 });
 
 const dialog = [
